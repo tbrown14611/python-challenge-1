@@ -155,7 +155,7 @@ while place_order:
 
 
                     # Add the item name, price, and quantity to the order list
-            item_count = item_count + 1
+            item_count += 1
 
                     # Tell the customer that their input isn't valid
               #  else:
@@ -171,7 +171,7 @@ while place_order:
     print("Keep Ordering = "+keep_ordering)
     # 5. Check the customer's input
     # Complete the order
-    print("Item_count = "+item_count)
+    print("Item_count = "+str(item_count))
     if(item_count > 0 and keep_ordering == 'n'):
         # Since the customer decided to stop ordering, thank them for
         # their order
