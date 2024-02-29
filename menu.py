@@ -51,6 +51,7 @@ menu = {
 }
 
 menu_dashes = "-" * 42
+item_dashes = "-" * 46
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
@@ -149,7 +150,7 @@ while place_order:
                 item_name = menu_items[item_number]["Item name"]
                 item_price = menu_items[item_number]["Price"]
             # Ask the customer for the quantity of the menu item
-                item_quantity = input(f"How many {item_name}s would you like to order?")
+                item_quantity = input(f"How many {item_name}\'s would you like to order?")
             # Check if the quantity is a number, default to 1 if not
                 if item_quantity.isdigit():
                     order_price = float(item_price) * int(item_quantity)
@@ -170,11 +171,9 @@ while place_order:
             print("You didn't select a number.")
     # Ask the customer if they would like to order anything else
     keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ").lower()
-    print("Keep Ordering = "+ keep_ordering)
     # 5. Check the customer's input
     # Complete the order
     order_item_count = len(order)
-    print("Order_Item_count = "+str(order_item_count))
     if(order_item_count > 0 and keep_ordering == 'n'):
         # Since the customer decided to stop ordering, thank them for
         # their order
@@ -183,18 +182,27 @@ while place_order:
             print("This is what we are preparing for you.\n")
             print("Item name                 | Price  | Quantity")
             print("--------------------------|--------|----------")
-            print(order)
-        # 6. Loop through the items in the customer's order
-
-        # 7. Store the dictionary items as variables
-        # 8. Calculate the number of spaces for formatted printing
-
-
-        # 9. Create space strings
-
-
-        # 10. Print the item name, price, and quantity
-
+            # 6. Loop through the items in the customer's order and 
+            # 7. Store the dictionary items as variables
+            for element in order:
+                for key in element:
+                    if key == 'Item name':
+                        list_item_name = element[key]
+                    if key == 'Price':
+                        list_price_print = '$' + str(element[key])
+                        list_price = element[key]
+                    if key == 'Quantity':
+                        list_quantity_print = str(element[key])
+                        list_quantity = element[key]
+                    # 8. Calculate the number of spaces for formatted printing
+                        num_item_spaces1 = 34 - len(list_item_name + list_price_print)
+                        num_item_spaces2 = 12 - len(list_quantity_print)
+                    # 9. Create space strings
+                        item_spaces1 = " " * num_item_spaces1
+                        item_spaces2 = " " * num_item_spaces2
+                    # 10. Print the item name, price, and quantity
+                        print(list_item_name + item_spaces1 + list_price_print + item_spaces2 + list_quantity_print)
+            print(item_dashes) 
         # 11. Calculate the cost of the order using list comprehension
         # Multiply the price by quantity for each item in the order list, then sum()
         # and print the prices.
