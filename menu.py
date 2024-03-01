@@ -184,6 +184,7 @@ while place_order:
             print("--------------------------|--------|----------")
             # 6. Loop through the items in the customer's order and 
             # 7. Store the dictionary items as variables
+            total_cost = []
             for element in order:
                 for key in element:
                     if key == 'Item name':
@@ -202,10 +203,11 @@ while place_order:
                         item_spaces2 = " " * num_item_spaces2
                     # 10. Print the item name, price, and quantity
                         print(list_item_name + item_spaces1 + list_price_print + item_spaces2 + list_quantity_print)
+                    # 11. Multiply the price by quantity for each item in the order and append it to total_cost list.
+                        total_cost.append(float(list_price) * int(list_quantity))
             print(item_dashes) 
-        # 11. Calculate the cost of the order using list comprehension
-        # Multiply the price by quantity for each item in the order list, then sum()
-        # and print the prices.
+        # Calculate the total price of the order using list comprehension sum built in function
+            print(f"Total Price for this Order:    ${format(sum(total_cost),'.2f')}")
             break
         
  
