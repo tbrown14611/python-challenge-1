@@ -138,11 +138,12 @@ while place_order:
             # 2. Ask customer to input menu item number
             item = input(f"What {menu_category_name} item would you like to order?")
             # 3. Check if the customer typed a number
+            item_number = 'i'
             if item.isdigit():
-                if item == 'q':
-                    break
             # Convert the menu selection to an integer
                 item_number = int(item)
+            if item_number == 'i':
+                iter
             # Check if the customer's input is a valid option
             # 4. Check if the menu selection is in the menu items
             if item_number in menu_items.keys():
@@ -174,7 +175,7 @@ while place_order:
     # 5. Check the customer's input
     # Complete the order
     order_item_count = len(order)
-    if(order_item_count > 0 and keep_ordering == 'n'):
+    if(order_item_count > 0 and keep_ordering != 'y'):
         # Since the customer decided to stop ordering, thank them for
         # their order
             print("Thank You for your order.")
@@ -207,8 +208,14 @@ while place_order:
                         total_cost.append(float(list_price) * int(list_quantity))
             print(item_dashes) 
         # Calculate the total price of the order using list comprehension sum built in function
-            print(f"Total Price for this Order:    ${format(sum(total_cost),'.2f')}")
+            print(f"Total Price for this Order: ${format(sum(total_cost),'.2f')}")
+        # Ask Customer if they would like to order again.
+            order.clear()
+            order_again = input("Would you like to order again? (Y)es or (N)o ").lower()
+            if order_again != 'y':
+                break
+    else:
+        if keep_ordering == 'y':
+            iter
+        else:
             break
-        
- 
-
