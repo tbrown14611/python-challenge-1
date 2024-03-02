@@ -197,8 +197,8 @@ while place_order:
                         list_quantity_print = str(element[key])
                         list_quantity = element[key]
                     # 8. Calculate the number of spaces for formatted printing
-                        num_item_spaces1 = 34 - len(list_item_name + list_price_print)
-                        num_item_spaces2 = 12 - len(list_quantity_print)
+                        num_item_spaces1 = 33 - len(list_item_name + list_price_print)
+                        num_item_spaces2 = 5 - len(list_quantity_print)
                     # 9. Create space strings
                         item_spaces1 = " " * num_item_spaces1
                         item_spaces2 = " " * num_item_spaces2
