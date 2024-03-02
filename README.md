@@ -1,4 +1,10 @@
 # python-challenge-1
+
+It is your responsibility to include a note in the README section of your repo specifying code source and its location within your repo.
+
+Code Source is in file menu.py located within the main branch at https://github.com/tbrown14611/python-challenge-1
+
+# Requirements
 Boot Camp Python Challenge 1
 Module 2 Challenge
 Due Monday by 11:59pm Points 100 Submitting a text entry box or a website url
