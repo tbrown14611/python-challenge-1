@@ -157,6 +157,7 @@ while place_order:
                     order_price = float(item_price) * int(item_quantity)
                 else:
                     item_quantity = 1
+                    print(f"Item Quantity has been defaulted to 1.")
             # Append a new list to the order dictionary.  
                 order_item_count = len(order)
                 order_list = {"Item name": item_name, "Price": item_price, "Quantity": item_quantity}
@@ -170,12 +171,28 @@ while place_order:
     else:
         # Tell the customer they didn't select a number
             print("You didn't select a number.")
+    customer_ordering = True
+    while customer_ordering:
     # Ask the customer if they would like to order anything else
-    keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ").lower()
-    # 5. Check the customer's input
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ").lower()
+        # 5. Check the customer's input
+        order_item_count = len(order)
+        match keep_ordering:
+            case "y":
+                print("Continue ordering requested.")
+                place_order = True
+                customer_ordering = False
+                break
+            case "n":
+                print("Stop ordering requested.")
+                if(order_item_count == 0):
+                    place_order = False
+                customer_ordering = False
+                break
+            case _:
+                print(f" (Y)es or (N)o was expected.  Please try again.") 
     # Complete the order
-    order_item_count = len(order)
-    if(order_item_count > 0 and keep_ordering != 'y'):
+    if(place_order and keep_ordering !='y'):
         # Since the customer decided to stop ordering, thank them for
         # their order
             print("Thank You for your order.")
@@ -214,8 +231,4 @@ while place_order:
             order_again = input("Would you like to order again? (Y)es or (N)o ").lower()
             if order_again != 'y':
                 break
-    else:
-        if keep_ordering == 'y':
-            iter
-        else:
-            break
+   
